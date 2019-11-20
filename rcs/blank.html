@@ -1,0 +1,71 @@
+<!-- ******************************************
+* blank.html
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<title>Saba</title>
+		
+		<style>
+			body {
+				background-color:#ffffff;
+				text-align:center;
+			}
+			#message-p {
+				display:table;
+				text-align:center;	
+				width:100%;
+				height:100%;
+			}
+			#message-span {
+				display:table-cell;
+				vertical-align:middle;
+				color:#404040;
+				font-family:Arial,Helvetica,sans-serif;
+				font-size:12px;
+			}
+			<!--[if lte ie 8]>
+
+			#message-span {
+			  display: inline-block;
+			  }
+
+			#message-b {
+			  display: inline-block;
+			  height: 100%;
+			  vertical-align: middle;
+			  }
+
+			<![endif]-->
+		</style>
+		
+		<script type="text/javascript">
+
+			function showMessage(message) {
+				//console.log(message)
+				document.getElementById('message').innerHTML = message;
+			}
+
+			function afterLoad() {
+				var labelGetter = parent && parent.parent && parent.parent.Player && parent.parent.Player.controller;
+				var message = '<p id="message-p"><span id="message-span">' + 
+								labelGetter.labelGet('kI18nNavigationBlocked') +
+								'</span><!--[if lte ie 8]><b id="message-b"></b><![endif]--></p>';
+
+				showMessage(message);
+			}
+
+		</script>
+	</head>
+	<body onload="afterLoad();">
+		<div id="message"></div>
+	</body>
+</html>

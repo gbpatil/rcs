@@ -1,0 +1,122 @@
+<!-- ******************************************
+* aicc_redirect.html
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<title>Saba</title>
+		
+		<style>
+			body {
+				background-color:#ffffff;
+				text-align:center;
+			}
+			#message-p {
+				display:table;
+				text-align:center;	
+				width:100%;
+				height:100%;
+			}
+			#message-span {
+				display:table-cell;
+				vertical-align:middle;
+				color:#404040;
+				font-family:Arial,Helvetica,sans-serif;
+				font-size:12px;
+			}
+			<!--[if lte ie 8]>
+
+			#message-span {
+			  display: inline-block;
+			  }
+
+			#message-b {
+			  display: inline-block;
+			  height: 100%;
+			  vertical-align: middle;
+			  }
+
+			<![endif]-->
+		</style>
+
+		<script type="text/javascript">
+
+			var controller = null;
+			function lookupController() {
+				// Check the controller in parent.
+				controller = parent && parent.Player && parent.Player.controller;
+				
+				// If not found, check the controller in opener.
+				controller = controller || (window.opener && window.opener.Player && window.opener.Player.controller);
+				
+				// If not found, provide default controller.
+				controller = controller || {
+					labelGet: function() {
+					 	return 'Controller can not be located';
+					},
+					
+					showMessage: function() {
+					}
+				};
+			}
+
+
+			function showMessage(message) {
+				var messageHtml = '<p id="message-p"><span id="message-span">' + message +
+									'</span><!--[if lte ie 8]><b id="message-b"></b><![endif]--></p>';
+				document.getElementById('message').innerHTML = messageHtml;
+			}
+
+			function showDefaultMessage() {
+				if(isNewWindow()) {
+					controller.showMessage(controller.labelGet('kI18nNavigationBlocked'));
+					window.close();
+				} else {
+					controller.showMessage(controller.labelGet('kI18nNavigationBlocked'));
+				}
+			}
+				
+			function showRedirectMessage() {
+				showMessage(controller.labelGet('kI18nContentFetch'));
+			}
+
+			function isNewWindow() {
+				return window.opener && window.opener.Player;
+			}
+
+			/**
+			 *  This is main redirect method. It redirects the page to the aicc content and on return redirects back to some navigation message.
+			 *  It looks up controller and gets aicc url from it.
+			 *	If found, it loads the aicc content using aicc url and cleans controller data.
+			 *	Else on return from aicc content, it loads navigation message. 
+			 */
+			function redirect() {
+				lookupController();
+				if(controller.aiccUrl) {
+					loadContent();
+				} else {
+					showDefaultMessage();
+				}
+			}
+
+			function loadContent() {
+				var url = controller.aiccUrl;
+				controller.aiccUrl = "";
+				showRedirectMessage();
+				document.location.href = url;
+			}
+
+		</script>
+	</head>
+	<body onload="redirect();">
+		<div id="message"></div>
+	</body>
+</html>

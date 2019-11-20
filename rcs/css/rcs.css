@@ -1,0 +1,19 @@
+/* ******************************************
+* rcs.css
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* */
+
+frame[name=sco] {
+    width: auto !important;
+    height: auto !important;
+}
+
+/* In browsers, body tag is generated on remote_frameset.html.
+In IE11/FF it takes some space (height and width) which results in 
+vertical scrollbar in IE and both scrollbars in FF to appear. Hence hiding its display. */
+body {
+	display: none;
+}

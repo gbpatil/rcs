@@ -1,0 +1,38 @@
+<!-- ******************************************
+* remote_frameset.html
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=10">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Content Player</title>
+
+        <link rel="stylesheet" href="css/rcs-modern.css">
+        <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+        
+        <script src="scripts/common-scripts.js"></script>
+        <script src="scripts/api-events-handler.js"></script>
+        <script src="scripts/params-extractor.js"></script>
+        <script src="scripts/content-loader.js"></script>
+    </head>
+    <body onload="setSourceToFrames()">
+        <iframe
+          id="content-frame"
+          name="sco"
+          allowfullscreen
+          webkitAllowfullscreen
+          mozallowfullscreen
+        ></iframe>
+        <iframe
+          id="adapter-frame"
+          name="scorm_api"
+        ></iframe>
+    </body>
+</html>

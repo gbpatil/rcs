@@ -1,0 +1,74 @@
+********************************************************************
+----------------------------
+Remote Content Server : RCS
+----------------------------
+Current Version: 1.7
+SC Update: Saba Cloud Update 44
+Copyright (c) Saba Software, Inc.
+All Rights Reserved
+--------------------------------------------------------------------
+
+Version History:
+--------------------------------------------------------------------
+--------------
+Version 1.7
+--------------
+- Used iframe to load scorm contents for modern content player
+
+Issue Reference: SPC-126088
+
+--------------
+Version 1.6.2
+--------------
+- Corrected auto close behavior of the player on exit of SCORM 1.2 contents
+
+Issue Reference: SPC-127840
+
+--------------
+Version 1.6.1
+--------------
+- Scrollbars removed in Microsoft Internet Explorer 11 and Microsoft Edge for New Window launch mode
+- Viewport meta tag added to support content responsiveness on mobile/tablet browsers
+
+Issue Reference: SPC-127581, SPC-125990, MOBI-12023
+
+--------------
+Version 1.6
+--------------
+- Support for IE 9, 10, 11 & Edge Compatibility Mode added
+
+Issue Reference: SPC-106041
+
+--------------
+Version 1.5.1
+--------------
+- Favicons updated
+
+Issue Reference: SPC-103150 (SPC-97761) 
+
+--------------
+Version 1.5
+--------------
+- IE Compatibility Meta Tags removed from remote_frameset.html and scorm_frame.html.
+
+Issue Reference: SPC-84577, SPC-88761, SPC-87335, SPC-79894, SPC-74088, SPC-75738, SPC-62918
+
+--------------
+Version 1.4.1
+--------------
+- Panopto SCORM identifier added in sco_url as a query param
+- On Panopto SCORM content completion, location_location and lesson_status is cleared to create multiple attempts 
+
+Issue Reference: SPC-80664, SPC-76931 (StoryID)
+
+--------------
+Version 1.4
+--------------
+- IE Compatibility META tag added to render content in highest version of IE (Edge)
+- Meta Tag added for charset (UTF-8) in html files
+- HTML5 doctype added in html files
+- Addition of RCS Version info in communication logs
+
+Issue Reference: SPC-71924, SPC-61653
+
+********************************************************************

@@ -1,0 +1,32 @@
+<!-- ******************************************
+* loading.html
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
+	<body style="text-align: center;">
+		<br><br><br>
+		<!-- Showing three dots in the center of the screen to emulate a loading message -->
+		<span style="color: #06437F; font-size: 50px;">...</span>
+		<script type='text/javascript'>
+			var apiLookCount = 20;
+			var searchForAPI = function () {
+				if (parent.API || apiLookCount < 1) {
+					parent.onSabaCertificateFound();
+				} else {
+					setTimeout(searchForAPI, 1000);
+					apiLookCount = apiLookCount - 1;
+				}
+			};
+			searchForAPI();
+		</script>
+	</body>
+</html>

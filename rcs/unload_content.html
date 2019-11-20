@@ -1,0 +1,24 @@
+<!-- ******************************************
+* unload_content.html
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <script language="javascript">
+        	function notifyShell() {
+        		parent && parent.shell && parent.shell.originator && parent.shell.originator.proceed();
+        	}
+        </script>
+    </head>
+    <body style="background-color: #ffeeee;" onload="notifyShell();">
+        <span style="font-family: verdana;">Unloading content. Please wait...</span>
+    </body>
+</html>

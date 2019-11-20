@@ -1,0 +1,27 @@
+<!-- ******************************************
+* setCookies.htm
+* Remote Content Server (RCS)
+* Copyright (c) Saba Software, Inc.
+* All Rights Reserved
+* Company Confidential
+******************************************* -->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<script type="text/javascript">
+		function setCookieForCDN(){
+			var cookieVal = document.location.href.substr(document.location.href.indexOf('?')+1).split('&')[0].split('=')[0]=='cid' && document.location.href.substr(document.location.href.indexOf('?')+1).split('&')[0].split('=')[1];
+				assetRoot = document.location.href.substr(document.location.href.indexOf('?')+1).split('&')[1].split('=')[0]=='asroot' && document.location.href.substr(document.location.href.indexOf('?')+1).split('&')[1].split('=')[1];
+
+			document.cookie = 'csessionId=' + cookieVal + ';path=/';
+			document.location.href= assetRoot + '/assets/content/player/cdnCookieSet.htm';
+		}
+		</script>
+	</head>
+	<body onload="setCookieForCDN()"></body>
+</html>
